@@ -175,12 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => toast.classList.remove("show"), 3000);
   }
 
-  document.getElementById("searchForm").addEventListener("submit", e => {
-    e.preventDefault();
-    showToast("🔍 Searching the best tours for you...");
-    setTimeout(() => document.getElementById("packages").scrollIntoView({ behavior: "smooth" }), 600);
-  });
-
   document.getElementById("newsletterForm").addEventListener("submit", e => {
     e.preventDefault();
     showToast("🎉 Thanks for subscribing!");
