@@ -256,6 +256,24 @@ ul { margin: 0; padding: 0; list-style: none; }
 .dot { width: 9px; height: 9px; border-radius: 50%; border: 0; background: #cad9dd; cursor: pointer; padding: 0; transition: .25s; }
 .dot.active { background: var(--green); width: 24px; border-radius: 6px; }
 
+/* ---------- Tripadvisor widget ---------- */
+.tripadvisor-widget {
+  max-width: 820px; margin: 30px auto 0; display: flex; align-items: center; gap: 18px;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 24px; box-shadow: var(--shadow-sm); transition: .25s ease;
+}
+.tripadvisor-widget:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--green); }
+.ta-mark { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: .95rem; color: #173f35; white-space: nowrap; }
+.ta-mark i { position: relative; display: inline-block; width: 26px; height: 15px; border-radius: 14px; background: #34e0a1; flex-shrink: 0; }
+.ta-mark i::before, .ta-mark i::after { content: ""; position: absolute; top: 3px; width: 9px; height: 9px; border-radius: 50%; background: #0b1f1a; }
+.ta-mark i::before { left: 4px; }
+.ta-mark i::after { right: 4px; }
+.ta-copy { flex: 1; display: grid; gap: 2px; text-align: left; }
+.ta-copy strong { font-size: .95rem; color: var(--ocean-dark); }
+.ta-copy span { font-size: .82rem; color: var(--muted); }
+.ta-cta { color: var(--green); font-weight: 600; font-size: .86rem; white-space: nowrap; }
+.tripadvisor-widget:hover .ta-cta { color: var(--green-dark); }
+
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; }
 .contact-info h2 { font-size: clamp(2rem, 3.3vw, 2.7rem); color: var(--ocean-dark); }
@@ -370,6 +388,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   .strip-inner { gap: 10px 18px; font-size: .78rem; }
   .features { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .tripadvisor-widget { flex-wrap: wrap; gap: 12px; }
+  .ta-copy { flex-basis: 100%; }
   .modal-card { padding: 28px 22px; }
   .whatsapp-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
   .back-to-top { right: 16px; bottom: 80px; }
