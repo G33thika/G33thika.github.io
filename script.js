@@ -1,194 +1,252 @@
-/* =========================================
-   Diligent Tours - Scripts
-   ========================================= */
+/* ============================================================
+   Diligent Tours Sri Lanka — interactions
+   ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* ---------- Navbar: shrink on scroll + back-to-top ---------- */
+  /* ---------- Sticky navbar ---------- */
   const navbar = document.getElementById("navbar");
   const backToTop = document.getElementById("backToTop");
-
-  const onScroll = () => {
-    const y = window.scrollY;
-    navbar.classList.toggle("scrolled", y > 60);
-    backToTop.classList.toggle("show", y > 500);
-    highlightNav();
-  };
-  window.addEventListener("scroll", onScroll);
-
-  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-  /* ---------- Mobile menu ---------- */
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
 
+  const onScroll = () => {
+    const y = window.scrollY;
+    navbar.classList.toggle("scrolled", y > 40);
+    backToTop.classList.toggle("visible", y > 500);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Mobile menu ---------- */
+  const closeMenu = () => {
+    navLinks.classList.remove("open");
+    navbar.classList.remove("menu-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  };
   menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("open");
-    navLinks.classList.toggle("open");
+    const isOpen = navLinks.classList.toggle("open");
+    navbar.classList.toggle("menu-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
+  navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  window.addEventListener("resize", () => { if (window.innerWidth > 992) closeMenu(); });
 
-  navLinks.querySelectorAll("a").forEach(link =>
-    link.addEventListener("click", () => {
-      menuToggle.classList.remove("open");
-      navLinks.classList.remove("open");
-    })
-  );
-
-  /* ---------- Active nav link on scroll ---------- */
-  const sections = document.querySelectorAll("section[id]");
-  function highlightNav() {
-    const pos = window.scrollY + 120;
-    sections.forEach(sec => {
-      const link = navLinks.querySelector(`a[href="#${sec.id}"]`);
-      if (!link) return;
-      const inView = pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight;
-      link.classList.toggle("active", inView);
-    });
+  /* ---------- Active nav link ---------- */
+  const navAnchors = [...navLinks.querySelectorAll("a")];
+  const sections = navAnchors
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+  if ("IntersectionObserver" in window) {
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navAnchors.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${entry.target.id}`));
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    sections.forEach((s) => navObserver.observe(s));
   }
 
-  /* ---------- Typing effect in hero ---------- */
-  const words = ["Adventure", "Escape", "Getaway", "Journey"];
-  const typedEl = document.getElementById("typed");
-  let wordIndex = 0, charIndex = words[0].length, deleting = true;
-
-  function type() {
-    const word = words[wordIndex];
-    typedEl.textContent = word.substring(0, charIndex);
-
-    if (deleting) {
-      charIndex--;
-      if (charIndex < 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        charIndex = 0;
-      }
-    } else {
-      charIndex++;
-      if (charIndex > words[wordIndex].length) {
-        deleting = true;
-        setTimeout(type, 1800);   // pause on full word
-        return;
-      }
-    }
-    setTimeout(type, deleting ? 60 : 110);
+  /* ---------- Reveal on scroll ---------- */
+  const revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((el) => revealObserver.observe(el));
+  } else {
+    revealItems.forEach((el) => el.classList.add("show"));
   }
-  setTimeout(type, 2200);
 
-  /* ---------- Scroll reveal ---------- */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll(".reveal").forEach((el, i) => {
-    // small stagger for elements in the same group
-    el.style.transitionDelay = `${(i % 3) * 0.12}s`;
-    revealObserver.observe(el);
-  });
-
-  /* ---------- Animated counters ---------- */
+  /* ---------- Counters ---------- */
   const counters = document.querySelectorAll(".counter");
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = +el.dataset.target;
-      const duration = 1800;
-      const start = performance.now();
+  const runCounter = (el) => {
+    const target = Number(el.dataset.target || 0);
+    const duration = 1600;
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = Math.floor(progress * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ("IntersectionObserver" in window) {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        runCounter(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => counterObserver.observe(el));
+  } else {
+    counters.forEach((el) => { el.textContent = Number(el.dataset.target || 0).toLocaleString(); });
+  }
 
-      const update = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3); // ease-out
-        el.textContent = Math.floor(eased * target).toLocaleString();
-        if (progress < 1) requestAnimationFrame(update);
-      };
-      requestAnimationFrame(update);
-      counterObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c => counterObserver.observe(c));
-
-  /* ---------- Destination filter ---------- */
+  /* ---------- Destination filters ---------- */
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".dest-card");
-
-  filterBtns.forEach(btn => {
+  const destCards = document.querySelectorAll(".dest-card");
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
+      filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       const filter = btn.dataset.filter;
-
-      cards.forEach(card => {
-        const match = filter === "all" || card.dataset.category === filter;
-        if (match) {
-          card.classList.remove("hide");
-          card.animate(
-            [{ opacity: 0, transform: "scale(0.9)" }, { opacity: 1, transform: "scale(1)" }],
-            { duration: 400, easing: "ease-out" }
-          );
-        } else {
-          card.classList.add("hide");
-        }
+      destCards.forEach((card) => {
+        card.classList.toggle("hidden", filter !== "all" && card.dataset.category !== filter);
       });
     });
   });
 
   /* ---------- Testimonial slider ---------- */
-  const slides = document.getElementById("slides");
-  const slideCount = slides.children.length;
+  const slides = [...document.querySelectorAll("#slides .slide")];
   const dotsWrap = document.getElementById("dots");
   let current = 0;
-  let autoPlay;
+  let sliderTimer;
 
-  for (let i = 0; i < slideCount; i++) {
-    const dot = document.createElement("span");
-    dot.className = "dot" + (i === 0 ? " active" : "");
-    dot.addEventListener("click", () => { goTo(i); restart(); });
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "dot";
+    dot.setAttribute("aria-label", `Show review ${i + 1}`);
+    dot.addEventListener("click", () => showSlide(i));
     dotsWrap.appendChild(dot);
-  }
-  const dots = dotsWrap.querySelectorAll(".dot");
+  });
 
-  function goTo(i) {
-    current = (i + slideCount) % slideCount;
-    slides.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === current));
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+    [...dotsWrap.children].forEach((dot, i) => dot.classList.toggle("active", i === current));
   }
-  function restart() {
-    clearInterval(autoPlay);
-    autoPlay = setInterval(() => goTo(current + 1), 5000);
-  }
+  function nextSlide() { showSlide(current + 1); }
+  function startSlider() { sliderTimer = setInterval(nextSlide, 6500); }
+  function stopSlider() { clearInterval(sliderTimer); }
 
-  document.getElementById("prevBtn").addEventListener("click", () => { goTo(current - 1); restart(); });
-  document.getElementById("nextBtn").addEventListener("click", () => { goTo(current + 1); restart(); });
-  restart();
+  document.getElementById("nextBtn").addEventListener("click", () => { stopSlider(); nextSlide(); startSlider(); });
+  document.getElementById("prevBtn").addEventListener("click", () => { stopSlider(); showSlide(current - 1); startSlider(); });
+  showSlide(0);
+  startSlider();
+  document.querySelector(".slider")?.addEventListener("mouseenter", stopSlider);
+  document.querySelector(".slider")?.addEventListener("mouseleave", startSlider);
 
-  /* ---------- Toast + form handling ---------- */
+  /* ---------- Itinerary modal ---------- */
+  const itineraryData = {
+    3: {
+      title: "3 Days — Colombo & Sigiriya Escape",
+      route: "Colombo → Sigiriya → Colombo",
+      days: [
+        "Day 1: Airport pickup, Colombo city tour and overnight stay.",
+        "Day 2: Drive to Sigiriya, climb Lion Rock and visit the village.",
+        "Day 3: Dambulla cave temple en route, return to Colombo for departure."
+      ]
+    },
+    5: {
+      title: "5 Days — Cultural Triangle",
+      route: "Sigiriya → Dambulla → Kandy → Colombo",
+      days: [
+        "Day 1: Arrival and transfer to Sigiriya.",
+        "Day 2: Sigiriya Rock Fortress and ancient villages.",
+        "Day 3: Dambulla cave temples, then onward to Kandy.",
+        "Day 4: Temple of the Tooth, Kandy lake and a cultural show.",
+        "Day 5: Departure transfer to the airport."
+      ]
+    },
+    7: {
+      title: "7 Days — Hills & Shores",
+      route: "Kandy → Nuwara Eliya → Ella → Mirissa → Galle",
+      days: [
+        "Day 1: Arrival and journey to Kandy.",
+        "Day 2: Kandy sights, then into the hill country.",
+        "Day 3: Nuwara Eliya tea plantations and waterfalls.",
+        "Day 4: Scenic train to Ella and Nine Arch Bridge.",
+        "Day 5: Down to Mirissa for beach time.",
+        "Day 6: Whale watching and Galle Fort sunset.",
+        "Day 7: Return to Colombo for departure."
+      ]
+    },
+    10: {
+      title: "10 Days — Wildlife & Wonders",
+      route: "Sigiriya → Kandy → Yala → Ella → Colombo",
+      days: [
+        "Day 1: Arrival and transfer to Sigiriya.",
+        "Day 2: Sigiriya and Dambulla.",
+        "Day 3: Travel to Kandy via the ancient capitals.",
+        "Day 4: Kandy and Peradeniya Gardens.",
+        "Day 5: Train journey into Nuwara Eliya.",
+        "Day 6: Tea country and waterfalls.",
+        "Day 7: Ella and the Nine Arch Bridge.",
+        "Day 8: Yala National Park safari.",
+        "Day 9: Return toward Colombo with coastal stops.",
+        "Day 10: Departure."
+      ]
+    },
+    14: {
+      title: "14 Days — Grand Sri Lanka",
+      route: "Colombo → Sigiriya → Kandy → Ella → Yala → Mirissa → Galle",
+      days: [
+        "Days 1-2: Arrival and Colombo orientation.",
+        "Days 3-4: Sigiriya, Dambulla and village life.",
+        "Days 5-6: Kandy and the Temple of the Tooth.",
+        "Days 7-8: Nuwara Eliya tea hills and the scenic train.",
+        "Days 9-10: Ella, waterfalls and Nine Arch Bridge.",
+        "Day 11: Yala wildlife safari.",
+        "Days 12-13: Mirissa beach and Galle Fort.",
+        "Day 14: Final transfer to the airport."
+      ]
+    }
+  };
+
+  const modal = document.getElementById("itineraryModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalRoute = document.getElementById("modalRoute");
+  const modalDays = document.getElementById("modalDays");
+
+  const openModal = (key) => {
+    const data = itineraryData[key];
+    if (!data) return;
+    modalTitle.textContent = data.title;
+    modalRoute.textContent = data.route;
+    modalDays.replaceChildren(...data.days.map((d) => {
+      const li = document.createElement("li");
+      li.textContent = d;
+      return li;
+    }));
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll(".itinerary-card").forEach((card) => {
+    card.querySelector("button")?.addEventListener("click", () => openModal(card.dataset.itinerary));
+  });
+  modal.querySelectorAll("[data-close-modal]").forEach((el) => el.addEventListener("click", closeModal));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) closeModal(); });
+
+  /* ---------- Toast + inquiry form ---------- */
   const toast = document.getElementById("toast");
-  function showToast(msg) {
-    toast.textContent = msg;
+  let toastTimer;
+  const showToast = (message) => {
+    toast.textContent = message;
     toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 3000);
-  }
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 4000);
+  };
 
-  document.getElementById("newsletterForm").addEventListener("submit", e => {
+  const inquiryForm = document.getElementById("inquiryForm");
+  inquiryForm?.addEventListener("submit", (e) => {
     e.preventDefault();
-    showToast("🎉 Thanks for subscribing!");
-    e.target.reset();
+    showToast("Ayubowan! Thank you — your enquiry has been noted. We'll contact you shortly.");
+    inquiryForm.reset();
   });
 
-  document.getElementById("contactForm").addEventListener("submit", e => {
-    e.preventDefault();
-    showToast("✅ Message sent! We'll contact you soon.");
-    e.target.reset();
-  });
+  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
   /* ---------- Footer year ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  onScroll();
 });

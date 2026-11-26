@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diligent Tours | Travel Made Effortless</title>
-  <meta name="description" content="Diligent Tours - handcrafted tours, beach escapes and mountain adventures." />
+  <title>Diligent Tours Sri Lanka | Discover Sri Lanka. Experience More.</title>
+  <meta name="description" content="Diligent Tours Sri Lanka — private transportation, airport transfers, hotel bookings and customized island tours. Your trusted travel partner in the paradise isle." />
+  <link rel="icon" href="assets/vintage-badge.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,379 +16,438 @@
   <!-- ========== NAVBAR ========== -->
   <header class="navbar" id="navbar">
     <div class="container nav-inner">
-      <a href="#home" class="logo">Diligent<span>Tours</span></a>
+      <a href="#home" class="logo" aria-label="Diligent Tours Sri Lanka home">
+        <img src="assets/vintage-badge.png" alt="Diligent Tours vintage travel badge" class="logo-mark" />
+        <span class="logo-text">Diligent<span>Tours</span><small>Sri Lanka</small></span>
+      </a>
 
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="#home" class="active">Home</a>
-        <a href="#destinations">Destinations</a>
-        <a href="#packages">Packages</a>
-        <a href="#about">Why Us</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#explore">Explore</a>
+        <a href="#places">Must-Visit</a>
+        <a href="#itineraries">Itineraries</a>
+        <a href="#partner">Partner</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <a href="#contact" class="btn btn-primary nav-cta">Book Now</a>
+      <a href="#contact" class="btn btn-primary nav-cta">Plan My Tour</a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero" id="home">
-    <div class="hero-overlay"></div>
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
 
-    <div class="container hero-content">
-      <p class="hero-tag fade-up">✈ Explore the world with us</p>
-      <h1 class="fade-up delay-1">
-        Discover Your Next <br />
-        <span class="typed" id="typed">Adventure</span><span class="cursor">|</span>
-      </h1>
-      <p class="hero-text fade-up delay-2">
-        Handpicked destinations, trusted guides and stress-free planning.
-        We take care of the details so you can enjoy the journey.
-      </p>
-    </div>
-
-    <a href="#stats" class="scroll-down" aria-label="Scroll down"><span></span></a>
-  </section>
-
-  <!-- ========== STATS ========== -->
-  <section class="stats" id="stats">
-    <div class="container stats-grid">
-      <div class="stat reveal">
-        <h3><span class="counter" data-target="12000">0</span>+</h3>
-        <p>Happy Travellers</p>
-      </div>
-      <div class="stat reveal">
-        <h3><span class="counter" data-target="85">0</span>+</h3>
-        <p>Destinations</p>
-      </div>
-      <div class="stat reveal">
-        <h3><span class="counter" data-target="250">0</span>+</h3>
-        <p>Tour Packages</p>
-      </div>
-      <div class="stat reveal">
-        <h3><span class="counter" data-target="15">0</span></h3>
-        <p>Years Experience</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DESTINATIONS ========== -->
-  <section class="section" id="destinations">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="sub-title">Top Destinations</p>
-        <h2>Popular Places to Visit</h2>
-        <p>Pick a style and find a place that fits.</p>
-      </div>
-
-      <div class="filters reveal">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="beach">Beach</button>
-        <button class="filter-btn" data-filter="mountain">Mountain</button>
-        <button class="filter-btn" data-filter="city">City</button>
-      </div>
-
-      <div class="dest-grid">
-        <article class="dest-card reveal" data-category="beach">
-          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80')"></div>
-          <div class="dest-info">
-            <h3>Maldives</h3>
-            <p>📍 Indian Ocean</p>
-            <span class="rating">★ 4.9</span>
-          </div>
-        </article>
-
-        <article class="dest-card reveal" data-category="mountain">
-          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80')"></div>
-          <div class="dest-info">
-            <h3>Swiss Alps</h3>
-            <p>📍 Switzerland</p>
-            <span class="rating">★ 4.8</span>
-          </div>
-        </article>
-
-        <article class="dest-card reveal" data-category="city">
-          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80')"></div>
-          <div class="dest-info">
-            <h3>Paris</h3>
-            <p>📍 France</p>
-            <span class="rating">★ 4.7</span>
-          </div>
-        </article>
-
-        <article class="dest-card reveal" data-category="beach">
-          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80')"></div>
-          <div class="dest-info">
-            <h3>Bali</h3>
-            <p>📍 Indonesia</p>
-            <span class="rating">★ 4.8</span>
-          </div>
-        </article>
-
-        <article class="dest-card reveal" data-category="mountain">
-          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80')"></div>
-          <div class="dest-info">
-            <h3>Banff</h3>
-            <p>📍 Canada</p>
-            <span class="rating">★ 4.9</span>
-          </div>
-        </article>
-
-        <article class="dest-card reveal" data-category="city">
-          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80')"></div>
-          <div class="dest-info">
-            <h3>Tokyo</h3>
-            <p>📍 Japan</p>
-            <span class="rating">★ 4.8</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PACKAGES ========== -->
-  <section class="section section-alt" id="packages">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="sub-title">Tour Packages</p>
-        <h2>Choose Your Perfect Trip</h2>
-        <p>Every package includes stays, transfers and a local guide.</p>
-      </div>
-
-      <div class="pkg-grid">
-        <div class="pkg-card reveal">
-          <div class="pkg-img" style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80')">
-            <span class="pkg-badge">5 Days</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Nature Escape</h3>
-            <ul>
-              <li>✔ 4-star eco lodge</li>
-              <li>✔ Guided hiking trails</li>
-              <li>✔ Breakfast & dinner</li>
-            </ul>
-            <div class="pkg-footer">
-              <p class="price">$799 <span>/ person</span></p>
-              <a href="#contact" class="btn btn-outline">Book</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="pkg-card featured reveal">
-          <div class="pkg-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80')">
-            <span class="pkg-badge">7 Days</span>
-            <span class="pkg-popular">Most Popular</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Lakes & Mountains</h3>
-            <ul>
-              <li>✔ Lakeside resort stay</li>
-              <li>✔ Boat & cable car tours</li>
-              <li>✔ All meals included</li>
-            </ul>
-            <div class="pkg-footer">
-              <p class="price">$1,299 <span>/ person</span></p>
-              <a href="#contact" class="btn btn-primary">Book</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="pkg-card reveal">
-          <div class="pkg-img" style="background-image:url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80')">
-            <span class="pkg-badge">10 Days</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Grand Explorer</h3>
-            <ul>
-              <li>✔ 3 countries, 6 cities</li>
-              <li>✔ Flights & transfers</li>
-              <li>✔ Private tour guide</li>
-            </ul>
-            <div class="pkg-footer">
-              <p class="price">$2,499 <span>/ person</span></p>
-              <a href="#contact" class="btn btn-outline">Book</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="about">
-    <div class="container about-grid">
-      <div class="about-img reveal">
-        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&q=80" alt="Travel planning" />
-        <div class="about-badge">
-          <strong>15+</strong>
-          <span>Years of trusted travel</span>
-        </div>
-      </div>
-
-      <div class="about-text">
-        <p class="sub-title reveal">Why Choose Us</p>
-        <h2 class="reveal">We Plan Every Trip With Care</h2>
-        <p class="reveal">
-          At Diligent Tours, every detail matters. From the first enquiry to the
-          last day of your trip, our team is with you all the way.
+      <div class="container hero-content">
+        <p class="hero-tag fade-up">Ayubowan..! Welcome to the Paradise Isle</p>
+        <h1 class="fade-up delay-1">
+          Discover Sri Lanka.<br />
+          <span class="hero-highlight">Experience More.</span>
+        </h1>
+        <p class="hero-text fade-up delay-2">
+          Your trusted travel partner for private tours, seamless transfers and
+          tailor-made journeys across the island.
         </p>
-
-        <div class="features">
-          <div class="feature reveal">
-            <div class="feature-icon">🛡️</div>
-            <div>
-              <h4>Safe & Secure</h4>
-              <p>Verified partners and 24/7 travel support.</p>
-            </div>
-          </div>
-          <div class="feature reveal">
-            <div class="feature-icon">💰</div>
-            <div>
-              <h4>Best Price</h4>
-              <p>Fair pricing with no hidden charges.</p>
-            </div>
-          </div>
-          <div class="feature reveal">
-            <div class="feature-icon">🧭</div>
-            <div>
-              <h4>Expert Guides</h4>
-              <p>Local guides who know every hidden gem.</p>
-            </div>
-          </div>
-          <div class="feature reveal">
-            <div class="feature-icon">⚡</div>
-            <div>
-              <h4>Easy Booking</h4>
-              <p>Book in minutes, change plans with ease.</p>
-            </div>
-          </div>
+        <div class="hero-actions fade-up delay-3">
+          <a href="#contact" class="btn btn-primary btn-lg">Plan Your Tour</a>
+          <a href="#itineraries" class="btn btn-outline-light btn-lg">View Itineraries</a>
         </div>
+        <p class="hero-note fade-up delay-3">15+ Years Experience &nbsp;•&nbsp; Registered Travel Service Provider &nbsp;•&nbsp; Islandwide Assistance</p>
+      </div>
+
+      <img src="assets/vintage-badge.png" alt="Diligent Tours vintage badge" class="hero-badge" />
+
+      <a href="#about" class="scroll-down" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ========== SERVICE STRIP ========== -->
+    <div class="service-strip">
+      <div class="container strip-inner">
+        <span>🚗 Private Transportation</span>
+        <span>✈️ Airport Transfers</span>
+        <span>🏨 Hotel Bookings</span>
+        <span>🗺️ Customized Packages</span>
+        <span>📸 Sightseeing</span>
+        <span>🤝 24/7 Assistance</span>
       </div>
     </div>
-  </section>
 
-  <!-- ========== TESTIMONIALS ========== -->
-  <section class="section section-alt" id="reviews">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="sub-title">Testimonials</p>
-        <h2>What Our Travellers Say</h2>
+    <!-- ========== STATS ========== -->
+    <section class="stats" id="stats">
+      <div class="container stats-grid">
+        <div class="stat reveal"><h3><span class="counter" data-target="15">0</span>+</h3><p>Years of Experience</p></div>
+        <div class="stat reveal"><h3><span class="counter" data-target="1200">0</span>+</h3><p>Happy Travellers</p></div>
+        <div class="stat reveal"><h3><span class="counter" data-target="60">0</span>+</h3><p>Curated Itineraries</p></div>
+        <div class="stat reveal"><h3><span class="counter" data-target="24">0</span>/7</h3><p>On-tour Support</p></div>
       </div>
+    </section>
 
-      <div class="slider reveal">
-        <div class="slides" id="slides">
-          <div class="slide">
-            <p class="quote">"Everything was perfectly organised. The guide was friendly and the hotels were beautiful. Best holiday we've ever had!"</p>
-            <div class="author">
-              <div class="avatar">SM</div>
-              <div><h4>Sarah M.</h4><span>Maldives Trip</span></div>
-            </div>
-          </div>
-          <div class="slide">
-            <p class="quote">"Diligent Tours really lives up to its name. Quick replies, clear plans and zero stress from start to finish."</p>
-            <div class="author">
-              <div class="avatar">RK</div>
-              <div><h4>Rahul K.</h4><span>Swiss Alps Tour</span></div>
-            </div>
-          </div>
-          <div class="slide">
-            <p class="quote">"Great value for money. They found us hidden spots we would never have discovered on our own. Highly recommended!"</p>
-            <div class="author">
-              <div class="avatar">EL</div>
-              <div><h4>Emma L.</h4><span>Japan Explorer</span></div>
-            </div>
+    <!-- ========== ABOUT ========== -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/SL_Kandy_asv2020-01_img04_Queens_Hotel.jpg/960px-SL_Kandy_asv2020-01_img04_Queens_Hotel.jpg" alt="Kandy, Sri Lanka" loading="lazy" />
+          <div class="about-badge">
+            <img src="assets/vintage-badge.png" alt="Diligent Tours badge" />
+            <div><strong>Ayubowan..!</strong><span>With warm Sri Lankan hospitality</span></div>
           </div>
         </div>
 
-        <div class="slider-controls">
-          <button class="slider-btn" id="prevBtn" aria-label="Previous">‹</button>
-          <div class="dots" id="dots"></div>
-          <button class="slider-btn" id="nextBtn" aria-label="Next">›</button>
+        <div class="about-text">
+          <p class="sub-title reveal">About Diligent Tours Sri Lanka</p>
+          <h2 class="reveal">We Welcome You to Our Paradise Isle</h2>
+          <p class="reveal">
+            Diligent Tours is a registered travel service provider with over 15 years
+            of experience. Our mission is to welcome tourists who visit Sri Lanka and
+            to provide sincere, honest and cordial service — taking you to places of
+            historical importance, wildlife and beautiful sea beaches with the best
+            facilities, at a very low cost.
+          </p>
+          <p class="reveal">
+            From the first enquiry to your final farewell, we arrange every detail:
+            private transportation, airport transfers, hotels, sightseeing and complete
+            travel assistance.
+          </p>
+
+          <div class="features">
+            <div class="feature reveal"><div class="feature-icon">🛡️</div><div><h4>Registered &amp; Trusted</h4><p>15+ years of reliable service.</p></div></div>
+            <div class="feature reveal"><div class="feature-icon">💛</div><div><h4>Honest &amp; Cordial</h4><p>Sincere care, no hidden charges.</p></div></div>
+            <div class="feature reveal"><div class="feature-icon">💰</div><div><h4>Great Value</h4><p>Premium experiences at low cost.</p></div></div>
+            <div class="feature reveal"><div class="feature-icon">🧭</div><div><h4>Islandwide Support</h4><p>Help whenever and wherever you need.</p></div></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== CTA / NEWSLETTER ========== -->
-  <section class="cta">
-    <div class="container cta-inner reveal">
-      <div>
-        <h2>Get Exclusive Travel Deals</h2>
-        <p>Subscribe and receive special offers straight to your inbox.</p>
-      </div>
-      <form class="newsletter" id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit" class="btn btn-light">Subscribe</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT ========== -->
-  <section class="section" id="contact">
-    <div class="container contact-grid">
-      <div class="contact-info reveal">
-        <p class="sub-title">Contact Us</p>
-        <h2>Let's Plan Your Trip</h2>
-        <p>Tell us where you want to go and we'll get back to you within 24 hours.</p>
-
-        <div class="info-item"><span>📍</span> 123 Travel Street, Colombo</div>
-        <div class="info-item"><span>📞</span> +94 77 123 4567</div>
-        <div class="info-item"><span>✉️</span> hello@diligenttours.com</div>
-        <div class="info-item"><span>🕒</span> Mon - Sat, 9:00 AM - 6:00 PM</div>
-      </div>
-
-      <form class="contact-form reveal" id="contactForm">
-        <div class="row">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
+    <!-- ========== SERVICES ========== -->
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="sub-title">Our Services</p>
+          <h2>Everything for a Seamless Island Journey</h2>
+          <p>One team, every arrangement — designed around your requirements.</p>
         </div>
-        <input type="text" placeholder="Destination you're interested in" />
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
-  </section>
+
+        <div class="services-grid">
+          <article class="service-card reveal"><span class="service-icon">🚗</span><h3>Private Transportation</h3><p>Comfortable, air-conditioned vehicles with experienced drivers for every leg of your trip.</p></article>
+          <article class="service-card reveal"><span class="service-icon">✈️</span><h3>Airport Transfers</h3><p>Punctual pickups and drop-offs at Bandaranaike International Airport, day or night.</p></article>
+          <article class="service-card reveal"><span class="service-icon">🏨</span><h3>Hotel Bookings</h3><p>Handpicked stays from boutique guesthouses to luxury resorts across Sri Lanka.</p></article>
+          <article class="service-card reveal"><span class="service-icon">🗺️</span><h3>Customized Tour Packages</h3><p>Flexible itineraries built around your interests, pace, dates and budget.</p></article>
+          <article class="service-card reveal"><span class="service-icon">📸</span><h3>Sightseeing Activities</h3><p>Guided visits to heritage sites, tea country, beaches, waterfalls and wildlife parks.</p></article>
+          <article class="service-card reveal"><span class="service-icon">🤝</span><h3>Complete Travel Assistance</h3><p>From permits to late-night changes, our team is with you throughout your journey.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EXPLORE SRI LANKA ========== -->
+    <section class="section" id="explore">
+      <div class="container">
+        <div class="explore-intro reveal">
+          <div class="explore-copy">
+            <p class="sub-title">Explore Sri Lanka</p>
+            <h2>An Island of Ancient Cities, Tea Hills &amp; Golden Shores</h2>
+            <p>
+              Travel from the rock fortress of Sigiriya to the cool hills of Ella and
+              Nuwara Eliya, the colonial streets of Galle, the whales of Mirissa and the
+              wilds of Yala. Every corner of Sri Lanka has a story to tell.
+            </p>
+            <a href="#itineraries" class="link-arrow">Find your journey →</a>
+          </div>
+          <div class="explore-collage">
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/960px-Sigiriya_%28141688197%29.jpeg" alt="Sigiriya rock fortress" loading="lazy" />
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Ella_railway_station.jpg/960px-Ella_railway_station.jpg" alt="Ella railway station" loading="lazy" />
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mirissa-Plage_%283%29.jpg/960px-Mirissa-Plage_%283%29.jpg" alt="Mirissa beach" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter destinations">
+          <button class="filter-btn active" data-filter="all">All Places</button>
+          <button class="filter-btn" data-filter="heritage">Heritage</button>
+          <button class="filter-btn" data-filter="hills">Hill Country</button>
+          <button class="filter-btn" data-filter="coast">Coast</button>
+          <button class="filter-btn" data-filter="wild">Wildlife</button>
+        </div>
+
+        <div class="dest-grid">
+          <article class="dest-card reveal" data-category="heritage">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/960px-Sigiriya_%28141688197%29.jpeg')"></div>
+            <div class="dest-info"><span class="dest-tag">Heritage</span><h3>Sigiriya</h3><p>Climb the ancient Lion Rock for unforgettable views.</p></div>
+          </article>
+          <article class="dest-card reveal" data-category="heritage">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/SL_Kandy_asv2020-01_img04_Queens_Hotel.jpg/960px-SL_Kandy_asv2020-01_img04_Queens_Hotel.jpg')"></div>
+            <div class="dest-info"><span class="dest-tag">Heritage</span><h3>Kandy</h3><p>Sacred temples, royal history and the beautiful lake.</p></div>
+          </article>
+          <article class="dest-card reveal" data-category="hills">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Ella_railway_station.jpg/960px-Ella_railway_station.jpg')"></div>
+            <div class="dest-info"><span class="dest-tag">Hill Country</span><h3>Ella</h3><p>Scenic train rides, waterfalls and Nine Arch Bridge.</p></div>
+          </article>
+          <article class="dest-card reveal" data-category="hills">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/NuwaraEliya_from_top.jpg/960px-NuwaraEliya_from_top.jpg')"></div>
+            <div class="dest-info"><span class="dest-tag">Hill Country</span><h3>Nuwara Eliya</h3><p>Tea plantations, cool air and colonial charm.</p></div>
+          </article>
+          <article class="dest-card reveal" data-category="coast">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Galle_Fort.jpg/960px-Galle_Fort.jpg')"></div>
+            <div class="dest-info"><span class="dest-tag">Coast</span><h3>Galle</h3><p>Walk the historic fort walls beside the Indian Ocean.</p></div>
+          </article>
+          <article class="dest-card reveal" data-category="coast">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mirissa-Plage_%283%29.jpg/960px-Mirissa-Plage_%283%29.jpg')"></div>
+            <div class="dest-info"><span class="dest-tag">Coast</span><h3>Mirissa</h3><p>Golden beaches, whale watching and laid-back sunsets.</p></div>
+          </article>
+          <article class="dest-card reveal" data-category="wild">
+            <div class="dest-img" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Yala_Beach.jpg/960px-Yala_Beach.jpg')"></div>
+            <div class="dest-info"><span class="dest-tag">Wildlife</span><h3>Yala</h3><p>Leopards, elephants and untamed coastal wilderness.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MUST-VISIT PLACES ========== -->
+    <section class="section section-alt" id="places">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="sub-title">Must-Visit Places</p>
+          <h2>Three Experiences You Should Not Miss</h2>
+          <p>The icons that make Sri Lanka unforgettable.</p>
+        </div>
+
+        <div class="highlight-grid">
+          <article class="highlight-card reveal" style="--card-img:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Sigiriya_%28141688197%29.jpeg/960px-Sigiriya_%28141688197%29.jpeg')">
+            <span class="highlight-num">01</span>
+            <div class="highlight-body"><h3>Sigiriya at Sunrise</h3><p>Beat the crowds and watch the light break over the ancient fortress and its vast gardens.</p></div>
+          </article>
+          <article class="highlight-card reveal" style="--card-img:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Ella_railway_station.jpg/960px-Ella_railway_station.jpg')">
+            <span class="highlight-num">02</span>
+            <div class="highlight-body"><h3>The Ella Train Journey</h3><p>One of the world's most beautiful rail routes, through tea hills, tunnels and misty valleys.</p></div>
+          </article>
+          <article class="highlight-card reveal" style="--card-img:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Sri_Pada.JPG/960px-Sri_Pada.JPG')">
+            <span class="highlight-num">03</span>
+            <div class="highlight-body"><h3>Adam's Peak</h3><p>A sacred pilgrimage and the famous " Sri Lanka footprint" seen from above at dawn.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ITINERARIES ========== -->
+    <section class="section" id="itineraries">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="sub-title">Tour Itineraries</p>
+          <h2>Sample Journeys from 3 to 14 Days</h2>
+          <p>Use these as a starting point — we happily tailor every detail to you.</p>
+        </div>
+
+        <div class="itinerary-grid">
+          <article class="itinerary-card reveal" data-itinerary="3">
+            <span class="itinerary-days">3 Days</span><h3>Colombo &amp; Sigiriya Escape</h3>
+            <p class="route">Colombo → Sigiriya → Colombo</p>
+            <p class="itinerary-desc">A short but rich introduction to Sri Lanka's capital and its ancient rock fortress.</p>
+            <button class="btn btn-outline btn-sm" type="button">View Details</button>
+          </article>
+          <article class="itinerary-card reveal" data-itinerary="5">
+            <span class="itinerary-days">5 Days</span><h3>Cultural Triangle</h3>
+            <p class="route">Sigiriya → Dambulla → Kandy → Colombo</p>
+            <p class="itinerary-desc">Caves, kingdoms and sacred temples in the island's historic heartland.</p>
+            <button class="btn btn-outline btn-sm" type="button">View Details</button>
+          </article>
+          <article class="itinerary-card featured reveal" data-itinerary="7">
+            <span class="itinerary-popular">Most Popular</span>
+            <span class="itinerary-days">7 Days</span><h3>Hills &amp; Shores</h3>
+            <p class="route">Kandy → Nuwara Eliya → Ella → Mirissa → Galle</p>
+            <p class="itinerary-desc">Tea country, waterfalls and golden beaches in one perfect week.</p>
+            <button class="btn btn-primary btn-sm" type="button">View Details</button>
+          </article>
+          <article class="itinerary-card reveal" data-itinerary="10">
+            <span class="itinerary-days">10 Days</span><h3>Wildlife &amp; Wonders</h3>
+            <p class="route">Sigiriya → Kandy → Yala → Ella → Colombo</p>
+            <p class="itinerary-desc">Ancient sites, leopard safaris and the scenic hill railway.</p>
+            <button class="btn btn-outline btn-sm" type="button">View Details</button>
+          </article>
+          <article class="itinerary-card reveal" data-itinerary="14">
+            <span class="itinerary-days">14 Days</span><h3>Grand Sri Lanka</h3>
+            <p class="route">Colombo → Sigiriya → Kandy → Ella → Yala → Mirissa → Galle</p>
+            <p class="itinerary-desc">The complete island experience, from ancient capitals to southern beaches.</p>
+            <button class="btn btn-outline btn-sm" type="button">View Details</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PARTNER WITH US ========== -->
+    <section class="section partner" id="partner">
+      <div class="container partner-grid">
+        <div class="partner-visual reveal">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Hikkaduwa_beach_beauty.jpg/1920px-Hikkaduwa_beach_beauty.jpg" alt="Sri Lankan coast" loading="lazy" />
+          <div class="partner-note"><img src="assets/vintage-banner.png" alt="Diligent Tours vintage banner" /></div>
+        </div>
+        <div class="partner-text">
+          <p class="sub-title reveal">Partner With Us</p>
+          <h2 class="reveal">For International Travel Agencies</h2>
+          <p class="reveal">
+            Looking for a dependable ground partner in Sri Lanka? We work with travel
+            agencies worldwide, providing private transportation, accommodation,
+            guiding and complete on-ground coordination for your clients.
+          </p>
+          <ul class="check-list reveal">
+            <li>Competitive net rates and flexible packages</li>
+            <li>Custom itineraries designed for your clients</li>
+            <li>Reliable drivers, guides and 24/7 support</li>
+            <li>Quick quotations and easy communication</li>
+          </ul>
+          <div class="partner-actions reveal">
+            <a href="#contact" class="btn btn-primary">Become a Partner</a>
+            <a href="https://wa.me/94771234567?text=Ayubowan!%20I%20would%20like%20to%20partner%20with%20Diligent%20Tours." target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="section section-alt" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="sub-title">Customer Reviews</p>
+          <h2>What Our Travellers Say</h2>
+        </div>
+
+        <div class="slider reveal">
+          <div class="slides" id="slides">
+            <div class="slide">
+              <p class="quote">"Ayubowan! Everything was perfectly organised — Sigiriya, Kandy and the beaches. Our driver was wonderful and the hotels were beautiful. Best holiday we've ever had!"</p>
+              <div class="author"><div class="avatar">SM</div><div><h4>Sarah M.</h4><span>Cultural Triangle Tour</span></div></div>
+            </div>
+            <div class="slide">
+              <p class="quote">"Diligent Tours really lives up to its name. Quick replies, clear plans and zero stress from the airport pickup to our final departure."</p>
+              <div class="author"><div class="avatar">RK</div><div><h4>Rahul K.</h4><span>7-Day Hills &amp; Shores</span></div></div>
+            </div>
+            <div class="slide">
+              <p class="quote">"Great value for money. They showed us hidden spots in Ella and Yala we would never have found on our own. Highly recommended!"</p>
+              <div class="author"><div class="avatar">EL</div><div><h4>Emma L.</h4><span>Grand Sri Lanka</span></div></div>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" id="prevBtn" aria-label="Previous review">‹</button>
+            <div class="dots" id="dots"></div>
+            <button class="slider-btn" id="nextBtn" aria-label="Next review">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <p class="sub-title">Contact Us</p>
+          <h2>Let's Plan Your Sri Lanka Journey</h2>
+          <p>Tell us where you want to go and we'll get back to you within 24 hours.</p>
+          <div class="info-item"><span>📍</span> 123 Travel Street, Colombo, Sri Lanka</div>
+          <div class="info-item"><span>📞</span> +94 77 123 4567</div>
+          <div class="info-item"><span>💬</span> <a href="https://wa.me/94771234567" target="_blank" rel="noopener">WhatsApp: +94 77 123 4567</a></div>
+          <div class="info-item"><span>✉️</span> hello@diligenttours.com</div>
+          <div class="info-item"><span>🕒</span> Mon - Sat, 9:00 AM - 6:00 PM</div>
+          <img src="assets/vintage-badge.png" alt="Diligent Tours badge" class="contact-badge" />
+        </div>
+
+        <form class="contact-form reveal" id="inquiryForm">
+          <div class="row">
+            <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required />
+          </div>
+          <div class="row">
+            <input type="tel" name="phone" placeholder="WhatsApp / Phone Number" aria-label="WhatsApp or Phone Number" />
+            <select name="month" aria-label="Preferred travel month">
+              <option value="">Preferred Travel Month</option>
+              <option>January</option><option>February</option><option>March</option>
+              <option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option>
+              <option>October</option><option>November</option><option>December</option>
+            </select>
+          </div>
+          <div class="row">
+            <select name="travellers" aria-label="Number of travellers">
+              <option value="">Number of Travellers</option>
+              <option>1 Person</option><option selected>2 People</option>
+              <option>3 - 5 People</option><option>6+ People</option>
+            </select>
+            <input type="text" name="places" placeholder="Places you'd like to visit" aria-label="Places you would like to visit" />
+          </div>
+          <textarea name="message" rows="5" placeholder="Tell us about your trip..." aria-label="Your message" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div>
-        <a href="#home" class="logo">Diligent<span>Tours</span></a>
-        <p>Creating unforgettable journeys with care, trust and attention to detail.</p>
+      <div class="footer-brand">
+        <img src="assets/vintage-banner.png" alt="Diligent Tours vintage banner" class="footer-banner" />
+        <p><strong>Discover Sri Lanka. Experience More. Your Trusted Travel Partner.</strong></p>
+        <p>We offer the most attractive tours and arrangements according to your requirements — with sincere, honest and cordial service.</p>
         <div class="socials">
+          <a href="https://wa.me/94771234567" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
           <a href="#" aria-label="Facebook">f</a>
           <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Twitter">x</a>
           <a href="#" aria-label="YouTube">▶</a>
         </div>
       </div>
       <div>
-        <h4>Quick Links</h4>
-        <a href="#destinations">Destinations</a>
-        <a href="#packages">Packages</a>
-        <a href="#about">Why Us</a>
-        <a href="#contact">Contact</a>
+        <h4>Explore</h4>
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#explore">Explore Sri Lanka</a>
+        <a href="#places">Must-Visit Places</a>
+        <a href="#itineraries">Tour Itineraries</a>
       </div>
       <div>
-        <h4>Support</h4>
-        <a href="#">FAQ</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Cancellation Policy</a>
+        <h4>Services</h4>
+        <a href="#services">Airport Transfers</a>
+        <a href="#services">Private Transportation</a>
+        <a href="#services">Hotel Bookings</a>
+        <a href="#services">Customized Packages</a>
+        <a href="#partner">Partner With Us</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+94771234567">+94 77 123 4567</a>
+        <a href="https://wa.me/94771234567" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href="mailto:hello@diligenttours.com">hello@diligenttours.com</a>
+        <a href="#contact">Send an Enquiry</a>
       </div>
     </div>
-    <p class="copyright">© <span id="year"></span> Diligent Tours. All rights reserved.</p>
+    <p class="copyright">© <span id="year"></span> Diligent Tours Sri Lanka. All rights reserved.</p>
   </footer>
 
-  <!-- Back to top + Toast -->
+  <!-- Floating WhatsApp + utilities -->
+  <a class="whatsapp-float" href="https://wa.me/94771234567?text=Ayubowan!%20I%20would%20like%20to%20plan%20a%20tour%20in%20Sri%20Lanka." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">💬</a>
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
   <div class="toast" id="toast"></div>
+
+  <!-- Itinerary details modal -->
+  <div class="modal" id="itineraryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
+      <p class="sub-title">Sample Itinerary</p>
+      <h3 id="modalTitle">Tour Details</h3>
+      <p id="modalRoute" class="modal-route"></p>
+      <ul id="modalDays" class="modal-days"></ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-primary" data-close-modal>Enquire About This Tour</a>
+        <a href="https://wa.me/94771234567?text=Ayubowan!%20I%20would%20like%20to%20know%20more%20about%20your%20tour%20packages." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
