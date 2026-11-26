@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diligent Tours | Travel Made Effortless</title>
+  <meta name="description" content="Diligent Tours - handcrafted tours, beach escapes and mountain adventures." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Diligent<span>Tours</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#packages">Packages</a>
+        <a href="#about">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary nav-cta">Book Now</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <div class="container hero-content">
+      <p class="hero-tag fade-up">✈ Explore the world with us</p>
+      <h1 class="fade-up delay-1">
+        Discover Your Next <br />
+        <span class="typed" id="typed">Adventure</span><span class="cursor">|</span>
+      </h1>
+      <p class="hero-text fade-up delay-2">
+        Handpicked destinations, trusted guides and stress-free planning.
+        We take care of the details so you can enjoy the journey.
+      </p>
+
+      <form class="search-box fade-up delay-3" id="searchForm">
+        <div class="field">
+          <label>Destination</label>
+          <input type="text" placeholder="Where to?" required />
+        </div>
+        <div class="field">
+          <label>Date</label>
+          <input type="date" required />
+        </div>
+        <div class="field">
+          <label>Travellers</label>
+          <select>
+            <option>1 Person</option>
+            <option selected>2 People</option>
+            <option>3 - 5 People</option>
+            <option>6+ People</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+
+    <a href="#stats" class="scroll-down" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="stats" id="stats">
+    <div class="container stats-grid">
+      <div class="stat reveal">
+        <h3><span class="counter" data-target="12000">0</span>+</h3>
+        <p>Happy Travellers</p>
+      </div>
+      <div class="stat reveal">
+        <h3><span class="counter" data-target="85">0</span>+</h3>
+        <p>Destinations</p>
+      </div>
+      <div class="stat reveal">
+        <h3><span class="counter" data-target="250">0</span>+</h3>
+        <p>Tour Packages</p>
+      </div>
+      <div class="stat reveal">
+        <h3><span class="counter" data-target="15">0</span></h3>
+        <p>Years Experience</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESTINATIONS ========== -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="sub-title">Top Destinations</p>
+        <h2>Popular Places to Visit</h2>
+        <p>Pick a style and find a place that fits.</p>
+      </div>
+
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="beach">Beach</button>
+        <button class="filter-btn" data-filter="mountain">Mountain</button>
+        <button class="filter-btn" data-filter="city">City</button>
+      </div>
+
+      <div class="dest-grid">
+        <article class="dest-card reveal" data-category="beach">
+          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80')"></div>
+          <div class="dest-info">
+            <h3>Maldives</h3>
+            <p>📍 Indian Ocean</p>
+            <span class="rating">★ 4.9</span>
+          </div>
+        </article>
+
+        <article class="dest-card reveal" data-category="mountain">
+          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80')"></div>
+          <div class="dest-info">
+            <h3>Swiss Alps</h3>
+            <p>📍 Switzerland</p>
+            <span class="rating">★ 4.8</span>
+          </div>
+        </article>
+
+        <article class="dest-card reveal" data-category="city">
+          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80')"></div>
+          <div class="dest-info">
+            <h3>Paris</h3>
+            <p>📍 France</p>
+            <span class="rating">★ 4.7</span>
+          </div>
+        </article>
+
+        <article class="dest-card reveal" data-category="beach">
+          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80')"></div>
+          <div class="dest-info">
+            <h3>Bali</h3>
+            <p>📍 Indonesia</p>
+            <span class="rating">★ 4.8</span>
+          </div>
+        </article>
+
+        <article class="dest-card reveal" data-category="mountain">
+          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80')"></div>
+          <div class="dest-info">
+            <h3>Banff</h3>
+            <p>📍 Canada</p>
+            <span class="rating">★ 4.9</span>
+          </div>
+        </article>
+
+        <article class="dest-card reveal" data-category="city">
+          <div class="dest-img" style="background-image:url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80')"></div>
+          <div class="dest-info">
+            <h3>Tokyo</h3>
+            <p>📍 Japan</p>
+            <span class="rating">★ 4.8</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PACKAGES ========== -->
+  <section class="section section-alt" id="packages">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="sub-title">Tour Packages</p>
+        <h2>Choose Your Perfect Trip</h2>
+        <p>Every package includes stays, transfers and a local guide.</p>
+      </div>
+
+      <div class="pkg-grid">
+        <div class="pkg-card reveal">
+          <div class="pkg-img" style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80')">
+            <span class="pkg-badge">5 Days</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Nature Escape</h3>
+            <ul>
+              <li>✔ 4-star eco lodge</li>
+              <li>✔ Guided hiking trails</li>
+              <li>✔ Breakfast & dinner</li>
+            </ul>
+            <div class="pkg-footer">
+              <p class="price">$799 <span>/ person</span></p>
+              <a href="#contact" class="btn btn-outline">Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card featured reveal">
+          <div class="pkg-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80')">
+            <span class="pkg-badge">7 Days</span>
+            <span class="pkg-popular">Most Popular</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Lakes & Mountains</h3>
+            <ul>
+              <li>✔ Lakeside resort stay</li>
+              <li>✔ Boat & cable car tours</li>
+              <li>✔ All meals included</li>
+            </ul>
+            <div class="pkg-footer">
+              <p class="price">$1,299 <span>/ person</span></p>
+              <a href="#contact" class="btn btn-primary">Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-card reveal">
+          <div class="pkg-img" style="background-image:url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80')">
+            <span class="pkg-badge">10 Days</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Grand Explorer</h3>
+            <ul>
+              <li>✔ 3 countries, 6 cities</li>
+              <li>✔ Flights & transfers</li>
+              <li>✔ Private tour guide</li>
+            </ul>
+            <div class="pkg-footer">
+              <p class="price">$2,499 <span>/ person</span></p>
+              <a href="#contact" class="btn btn-outline">Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-img reveal">
+        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&q=80" alt="Travel planning" />
+        <div class="about-badge">
+          <strong>15+</strong>
+          <span>Years of trusted travel</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p class="sub-title reveal">Why Choose Us</p>
+        <h2 class="reveal">We Plan Every Trip With Care</h2>
+        <p class="reveal">
+          At Diligent Tours, every detail matters. From the first enquiry to the
+          last day of your trip, our team is with you all the way.
+        </p>
+
+        <div class="features">
+          <div class="feature reveal">
+            <div class="feature-icon">🛡️</div>
+            <div>
+              <h4>Safe & Secure</h4>
+              <p>Verified partners and 24/7 travel support.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">💰</div>
+            <div>
+              <h4>Best Price</h4>
+              <p>Fair pricing with no hidden charges.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">🧭</div>
+            <div>
+              <h4>Expert Guides</h4>
+              <p>Local guides who know every hidden gem.</p>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">⚡</div>
+            <div>
+              <h4>Easy Booking</h4>
+              <p>Book in minutes, change plans with ease.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section section-alt" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="sub-title">Testimonials</p>
+        <h2>What Our Travellers Say</h2>
+      </div>
+
+      <div class="slider reveal">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <p class="quote">"Everything was perfectly organised. The guide was friendly and the hotels were beautiful. Best holiday we've ever had!"</p>
+            <div class="author">
+              <div class="avatar">SM</div>
+              <div><h4>Sarah M.</h4><span>Maldives Trip</span></div>
+            </div>
+          </div>
+          <div class="slide">
+            <p class="quote">"Diligent Tours really lives up to its name. Quick replies, clear plans and zero stress from start to finish."</p>
+            <div class="author">
+              <div class="avatar">RK</div>
+              <div><h4>Rahul K.</h4><span>Swiss Alps Tour</span></div>
+            </div>
+          </div>
+          <div class="slide">
+            <p class="quote">"Great value for money. They found us hidden spots we would never have discovered on our own. Highly recommended!"</p>
+            <div class="author">
+              <div class="avatar">EL</div>
+              <div><h4>Emma L.</h4><span>Japan Explorer</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn" id="prevBtn" aria-label="Previous">‹</button>
+          <div class="dots" id="dots"></div>
+          <button class="slider-btn" id="nextBtn" aria-label="Next">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA / NEWSLETTER ========== -->
+  <section class="cta">
+    <div class="container cta-inner reveal">
+      <div>
+        <h2>Get Exclusive Travel Deals</h2>
+        <p>Subscribe and receive special offers straight to your inbox.</p>
+      </div>
+      <form class="newsletter" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit" class="btn btn-light">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <p class="sub-title">Contact Us</p>
+        <h2>Let's Plan Your Trip</h2>
+        <p>Tell us where you want to go and we'll get back to you within 24 hours.</p>
+
+        <div class="info-item"><span>📍</span> 123 Travel Street, Colombo</div>
+        <div class="info-item"><span>📞</span> +94 77 123 4567</div>
+        <div class="info-item"><span>✉️</span> hello@diligenttours.com</div>
+        <div class="info-item"><span>🕒</span> Mon - Sat, 9:00 AM - 6:00 PM</div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <div class="row">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <input type="text" placeholder="Destination you're interested in" />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="logo">Diligent<span>Tours</span></a>
+        <p>Creating unforgettable journeys with care, trust and attention to detail.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Twitter">x</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#destinations">Destinations</a>
+        <a href="#packages">Packages</a>
+        <a href="#about">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Cancellation Policy</a>
+      </div>
+    </div>
+    <p class="copyright">© <span id="year"></span> Diligent Tours. All rights reserved.</p>
+  </footer>
+
+  <!-- Back to top + Toast -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
