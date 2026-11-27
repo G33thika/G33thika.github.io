@@ -239,9 +239,30 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const inquiryForm = document.getElementById("inquiryForm");
+  const whatsappNumber = "94702526278";
   inquiryForm?.addEventListener("submit", (e) => {
     e.preventDefault();
-    showToast("Ayubowan! Thank you — your enquiry has been noted. We'll contact you shortly.");
+
+    const data = new FormData(inquiryForm);
+    const value = (key) => String(data.get(key) || "").trim();
+    const message = [
+      "Ayubowan! New Tour Enquiry ✈️",
+      "",
+      `Name: ${value("name")}`,
+      `Email: ${value("email")}`,
+      `WhatsApp / Phone: ${value("phone") || "-"}`,
+      `Preferred Travel Month: ${value("month") || "-"}`,
+      `Travellers: ${value("travellers") || "-"}`,
+      `Places you'd like to visit: ${value("places") || "-"}`,
+      "",
+      "Message:",
+      value("message")
+    ].join("\n");
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    showToast("Opening WhatsApp with your enquiry...");
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+    if (!opened) window.location.href = url;
     inquiryForm.reset();
   });
 
